@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { FiSearch, FiFilter } from 'react-icons/fi';
-import appLogo from '../assets/icon.jpg';
+import appLogo from '../assets/icon.png';
 const ItemForm = ({ onAddItem }) => {
   const [formItem, setFormItem] = useState({
     title: '',
