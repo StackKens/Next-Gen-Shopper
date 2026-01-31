@@ -90,7 +90,7 @@ shopping-list/
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/<your-username>/shopping-list-app.git
+git clone https://github.com/stackKens/shopping-list-app.git
 cd shopping-list-app
 
 ** Installation**
