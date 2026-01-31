@@ -7,6 +7,7 @@ const ItemForm = ({ onAddItem }) => {
     priority: 'High',
     category: 'personal',
     description: '',
+    time: 'Morning',
   });
 
   //   Function to handle item form change
@@ -32,23 +33,26 @@ const ItemForm = ({ onAddItem }) => {
       priority: 'High',
       category: 'personal',
       description: '',
+      time: 'Morning',
     });
   };
 
   return (
     <>
       <img src={appLogo} alt='appLogo' className='logo' />
-      <h1>Shopping List App</h1>
-      <p>Manage shopping in a modern way</p>
+      <h1>NextGen Shopper</h1>
+      <p>Organize. Prioritize. Conquer</p>
 
-      <div className='search'>
-        <input type='text' placeholder='Search items' />
-        <FiSearch size={20} color='#555' />
-      </div>
+      <div className='search-filter-wrapper'>
+        <div className='search'>
+          <input type='text' placeholder='Search items' />
+          <FiSearch size={20} color='#555' />
+        </div>
 
-      <div className='filter'>
-        <p>filter</p>
-        <FiFilter size={24} color='#555' />
+        <div className='filter'>
+          <p>Filter</p>
+          <FiFilter size={24} color='#555' />
+        </div>
       </div>
 
       <form onSubmit={handleSubmit}>
@@ -106,6 +110,19 @@ const ItemForm = ({ onAddItem }) => {
           ></textarea>
         </div>
 
+        <div className='time'>
+          <label htmlFor='time'>Select time</label>
+          <select
+            name='time'
+            id='time'
+            value={formItem.time}
+            onChange={handleChange}
+          >
+            <option value='Morning'>Morning</option>
+            <option value='Afternoon'>Afternoon</option>
+            <option value='Evening'>Evening</option>
+          </select>
+        </div>
         <button type='submit'>Add item</button>
       </form>
     </>
