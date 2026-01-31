@@ -25,6 +25,7 @@ The Shopping List App allows users to:
 - Add items to a shopping list.
 - Select the time you want to go for shopping
 - Edit and delete individual items.
+- Select the category of their items
 - Mark items as bought/unbought.
 - Persist data across sessions using **local storage**.
 - Filter and search items dynamically.
