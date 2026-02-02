@@ -1,7 +1,7 @@
 const ItemList = () => {
   return (
     <>
-      <p>Your shopping items</p>
+      <p className='text-red-500'>Your shopping items</p>
     </>
   );
 };
