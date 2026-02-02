@@ -22,7 +22,6 @@ const ItemForm = ({ onAddItem }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!formItem.title || !formItem.description) return;
-    alert('form submitted');
 
     //sending data upwards
     onAddItem(formItem);
@@ -91,11 +90,11 @@ const ItemForm = ({ onAddItem }) => {
             onChange={handleChange}
           >
             <option value='Personal'>Personal</option>
-            <option value='HusbandFood'>Husband</option>
+            <option value='Husband'>Husband</option>
             <option value='Parent'>Parent</option>
             <option value='Child'>Child</option>
             <option value='Food'>Food</option>
-            <option value='HouseParent'>House</option>
+            <option value='House'>House</option>
           </select>
         </div>
 
