@@ -1,6 +1,6 @@
 import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
-const ItemList = ({ item, onDeleteItem, onEditItem }) => {
+const ItemList = ({ item, onDeleteItem, onEditItem, onToggleStatus }) => {
   if (!item || item.length === 0)
     return (
       <p className='text-gray-400 text-center mt-6'>
@@ -17,7 +17,13 @@ const ItemList = ({ item, onDeleteItem, onEditItem }) => {
         >
           {/* Header: title + edit icon */}
           <div className='flex items-start justify-between gap-3'>
-            <h3 className='text-white font-medium text-base break-words'>
+            <h3
+              className={`text-white font-medium text-base break-words ${
+                myItem.status === 'completed'
+                  ? 'line-through text-green-300'
+                  : ''
+              }`}
+            >
               {myItem.title}
             </h3>
 
@@ -57,12 +63,24 @@ const ItemList = ({ item, onDeleteItem, onEditItem }) => {
           </div>
 
           {/* Footer: delete icon */}
-          <div className='mt-4'>
+          <div className='flex items-center justify-between mt-4'>
+            {/* Left: Mark as completed */}
+            <label className='flex items-center gap-2 text-gray-400 text-sm cursor-pointer'>
+              <input
+                type='checkbox'
+                checked={myItem.status === 'completed'}
+                onChange={() => onToggleStatus(myItem.id)}
+                className='w-5 h-5 accent-green-400 cursor-pointer'
+              />
+              Mark as completed
+            </label>
+
+            {/* Right: Delete icon */}
             <button
               className='flex items-center gap-1 text-xs text-gray-500 hover:text-red-400 transition'
               onClick={() => onDeleteItem(myItem.id)}
             >
-              <FiTrash2 size={24} />
+              <FiTrash2 size={20} />
               Delete
             </button>
           </div>

@@ -46,10 +46,29 @@ const App = () => {
     if (editingItem && editingItem.id === id) setEditingItem(null);
   };
 
+  // Toggle completed/pending
+  const toggleStatus = (id) => {
+    setItem((prev) =>
+      prev.map((i) =>
+        i.id === id
+          ? {
+              ...i,
+              status: i.status === 'pending...' ? 'completed' : 'pending...',
+            }
+          : i,
+      ),
+    );
+  };
+
   return (
     <div>
       <ItemForm onAddItem={handleAddOrUpdateItem} editingItem={editingItem} />
-      <ItemList item={item} onDeleteItem={deleteItem} onEditItem={editItem} />
+      <ItemList
+        item={item}
+        onDeleteItem={deleteItem}
+        onEditItem={editItem}
+        onToggleStatus={toggleStatus}
+      />
     </div>
   );
 };
