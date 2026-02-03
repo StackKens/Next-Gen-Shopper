@@ -4,8 +4,8 @@ import ItemList from './components/itemList';
 
 const App = () => {
   const [item, setItem] = useState(() => {
-    const item = JSON.parse(localStorage.getItem('item'));
-    return item || [];
+    const storedItem = JSON.parse(localStorage.getItem('item'));
+    return storedItem || [];
   });
 
   //local storage persistence
