@@ -28,8 +28,20 @@ const ItemList = ({ item, onDeleteItem, onEditItem, onToggleStatus }) => {
             </h3>
 
             <button
-              className='text-gray-400 hover:text-blue-400 transition'
-              onClick={() => onEditItem(myItem)}
+              size={24}
+              className={`transition-colors ${
+                myItem.status === 'completed'
+                  ? 'text-gray-400 cursor-not-allowed opacity-40 hover:text-gray-400' // subdued, disabled
+                  : 'text-gray-400 hover:text-blue-400 cursor-pointer' // normal
+              }`}
+              onClick={() =>
+                myItem.status !== 'completed' && onEditItem(myItem)
+              }
+              title={
+                myItem.status === 'completed'
+                  ? 'Cannot edit completed task'
+                  : 'Edit task'
+              }
             >
               <FiEdit2 size={24} />
             </button>
