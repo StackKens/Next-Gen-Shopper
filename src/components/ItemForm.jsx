@@ -82,6 +82,11 @@ const ItemForm = ({ onAddItem, editingItem }) => {
           placeholder='Enter an item'
           value={formItem.title}
           onChange={handleChange}
+          className={`form-input ${
+            editingItem
+              ? 'border-blue-400 ring-1 ring-blue-400'
+              : 'border-neutral-700'
+          }`}
         />
 
         <div className='priority'>
@@ -124,7 +129,12 @@ const ItemForm = ({ onAddItem, editingItem }) => {
             value={formItem.description}
             onChange={handleChange}
             required
-          ></textarea>
+            className={`form-textarea ${
+              editingItem
+                ? 'border-blue-400 ring-1 ring-blue-400'
+                : 'border-neutral-700'
+            }`}
+          />
         </div>
 
         <div className='time'>
