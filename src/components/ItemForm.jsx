@@ -1,16 +1,36 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { FiSearch, FiFilter } from 'react-icons/fi';
 import appLogo from '../assets/icon.png';
-const ItemForm = ({ onAddItem }) => {
+
+const ItemForm = ({ onAddItem, editingItem }) => {
   const [formItem, setFormItem] = useState({
     title: '',
     priority: 'High',
-    category: 'personal',
+    category: 'Personal',
     description: '',
     time: 'Morning',
   });
 
-  //   Function to handle item form change
+  // Sync form when editingItem changes
+  useEffect(() => {
+    if (editingItem) {
+      setFormItem({
+        title: editingItem.title,
+        priority: editingItem.priority,
+        category: editingItem.category,
+        description: editingItem.description,
+        time: editingItem.time,
+      });
+    } else {
+      setFormItem({
+        title: '',
+        priority: 'High',
+        category: 'Personal',
+        description: '',
+        time: 'Morning',
+      });
+    }
+  }, [editingItem]);
 
   const handleChange = (e) => {
     setFormItem((prev) => ({
@@ -23,17 +43,18 @@ const ItemForm = ({ onAddItem }) => {
     e.preventDefault();
     if (!formItem.title || !formItem.description) return;
 
-    //sending data upwards
     onAddItem(formItem);
 
-    //resetting item form
-    setFormItem({
-      title: '',
-      priority: 'High',
-      category: 'personal',
-      description: '',
-      time: 'Morning',
-    });
+    // Reset happens only if not editing
+    if (!editingItem) {
+      setFormItem({
+        title: '',
+        priority: 'High',
+        category: 'Personal',
+        description: '',
+        time: 'Morning',
+      });
+    }
   };
 
   return (
@@ -65,7 +86,6 @@ const ItemForm = ({ onAddItem }) => {
 
         <div className='priority'>
           <label htmlFor='priority'>Priority</label>
-
           <select
             name='priority'
             id='priority'
@@ -81,7 +101,6 @@ const ItemForm = ({ onAddItem }) => {
 
         <div className='category'>
           <label htmlFor='category'>Category</label>
-
           <select
             name='category'
             id='category'
@@ -101,7 +120,6 @@ const ItemForm = ({ onAddItem }) => {
         <div className='text-area'>
           <textarea
             name='description'
-            id='description'
             placeholder='Add item description'
             value={formItem.description}
             onChange={handleChange}
@@ -122,8 +140,9 @@ const ItemForm = ({ onAddItem }) => {
             <option value='Evening'>Evening</option>
           </select>
         </div>
+
         <button type='submit' className='submit-btn'>
-          Add item
+          {editingItem ? 'Save Changes' : 'Add item'}
         </button>
       </form>
     </>

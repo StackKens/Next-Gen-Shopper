@@ -1,6 +1,6 @@
 import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
-const ItemList = ({ item, onDeleteItem }) => {
+const ItemList = ({ item, onDeleteItem, onEditItem }) => {
   if (!item || item.length === 0)
     return (
       <p className='text-gray-400 text-center mt-6'>
@@ -21,7 +21,10 @@ const ItemList = ({ item, onDeleteItem }) => {
               {myItem.title}
             </h3>
 
-            <button className='text-gray-400 hover:text-blue-400 transition'>
+            <button
+              className='text-gray-400 hover:text-blue-400 transition'
+              onClick={() => onEditItem(myItem)}
+            >
               <FiEdit2 size={24} />
             </button>
           </div>
@@ -53,10 +56,14 @@ const ItemList = ({ item, onDeleteItem }) => {
             </span>
           </div>
 
-          {/* Footer: delete icon (bottom-left) */}
+          {/* Footer: delete icon */}
           <div className='mt-4'>
-            <button className='flex items-center gap-1 text-xs text-gray-500 hover:text-red-400 transition'>
-              <FiTrash2 size={24} onClick={() => onDeleteItem(myItem.id)} />
+            <button
+              className='flex items-center gap-1 text-xs text-gray-500 hover:text-red-400 transition'
+              onClick={() => onDeleteItem(myItem.id)}
+            >
+              <FiTrash2 size={24} />
+              Delete
             </button>
           </div>
         </div>
