@@ -1,46 +1,46 @@
-import React, { useState, useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from 'react';
 
 // --- CONFIGURATION ---
 
 const DESKTOP_PHRASES = [
-  "BrainStack Studios – Crafting scalable software",
-  "Innovate. Build. Scale.",
-  "Quality code, exceptional UX",
-  "We deliver software that matters",
-  "Efficiency meets creativity",
-  "Modern solutions for modern problems",
-  "BrainStack Studios – Your software partner",
+  'BrainStack Studios - Crafting scalable software',
+  'Innovate. Build. Scale.',
+  'Quality code, exceptional UX',
+  'We deliver software that matters',
+  'Efficiency meets creativity',
+  'Modern solutions for modern problems',
+  'BrainStack Studios - Your software partner',
 ];
 
 const MOBILE_PHRASES = [
-  "Innovate",
-  "Scale",
-  "Build",
-  "Craft",
-  "Logic",
-  "Future",
-  "Design",
+  'Innovate',
+  'Scale',
+  'Build',
+  'Craft',
+  'Logic',
+  'Future',
+  'Design',
 ];
 
 const COLORS = [
-  "#60A5FA", // Blue 400
-  "#34D399", // Emerald 400
-  "#F472B6", // Pink 400
-  "#A78BFA", // Violet 400
-  "#FBBF24", // Amber 400
-  "#2DD4BF", // Teal 400
-  "#FB7185", // Rose 400
+  '#60A5FA', // Blue 400
+  '#34D399', // Emerald 400
+  '#F472B6', // Pink 400
+  '#A78BFA', // Violet 400
+  '#FBBF24', // Amber 400
+  '#2DD4BF', // Teal 400
+  '#FB7185', // Rose 400
 ];
 
 // Professional background gradients corresponding to text colors (faded)
 const BG_COLORS = [
-  "from-blue-900/20 to-slate-900/0",
-  "from-emerald-900/20 to-slate-900/0",
-  "from-pink-900/20 to-slate-900/0",
-  "from-violet-900/20 to-slate-900/0",
-  "from-amber-900/20 to-slate-900/0",
-  "from-teal-900/20 to-slate-900/0",
-  "from-rose-900/20 to-slate-900/0",
+  'from-blue-900/20 to-slate-900/0',
+  'from-emerald-900/20 to-slate-900/0',
+  'from-pink-900/20 to-slate-900/0',
+  'from-violet-900/20 to-slate-900/0',
+  'from-amber-900/20 to-slate-900/0',
+  'from-teal-900/20 to-slate-900/0',
+  'from-rose-900/20 to-slate-900/0',
 ];
 
 // --- COMPONENTS ---
@@ -61,11 +61,11 @@ const MobileBackground = React.memo(() => {
   }, []);
 
   return (
-    <div className="md:hidden fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div className='md:hidden fixed inset-0 pointer-events-none overflow-hidden z-0'>
       {particles.map((p, i) => (
         <span
           key={i}
-          className="absolute text-xs font-mono uppercase tracking-widest opacity-10"
+          className='absolute text-xs font-mono uppercase tracking-widest opacity-10'
           style={{
             color: p.color,
             top: `${p.top}%`,
@@ -84,16 +84,16 @@ const MobileBackground = React.memo(() => {
 
 // 2. Typing Text Component (Desktop)
 const TypingText = ({ text, color, isTyping, speed = 50 }) => {
-  const [displayedText, setDisplayedText] = useState("");
+  const [displayedText, setDisplayedText] = useState('');
 
   useEffect(() => {
     if (!isTyping) {
-      setDisplayedText("");
+      setDisplayedText('');
       return;
     }
 
     let index = 0;
-    setDisplayedText(""); // Reset on start
+    setDisplayedText(''); // Reset on start
 
     // Initial delay before typing starts to allow slide-in
     const startTimeout = setTimeout(() => {
@@ -117,11 +117,11 @@ const TypingText = ({ text, color, isTyping, speed = 50 }) => {
 
   return (
     <span
-      className="font-mono text-3xl xl:text-4xl font-bold tracking-wider drop-shadow-md transition-colors duration-500"
+      className='font-mono text-3xl xl:text-4xl font-bold tracking-wider drop-shadow-md transition-colors duration-500'
       style={{ color: color }}
     >
       {displayedText}
-      <span className="animate-pulse text-white inline-block w-2 ml-1">|</span>
+      <span className='animate-pulse text-white inline-block w-2 ml-1'>|</span>
     </span>
   );
 };
@@ -153,7 +153,7 @@ const DesktopBackground = React.memo(() => {
   const bgGradientRight = BG_COLORS[(colorIndex + 3) % BG_COLORS.length];
 
   return (
-    <div className="hidden md:block fixed inset-0 pointer-events-none z-0 overflow-hidden">
+    <div className='hidden md:block fixed inset-0 pointer-events-none z-0 overflow-hidden'>
       {/* Dynamic Colored Background Blobs */}
       <div
         className={`absolute top-0 left-0 w-1/2 h-full bg-gradient-to-br ${bgGradientLeft} opacity-30 transition-all duration-1000 ease-in-out`}
@@ -164,10 +164,10 @@ const DesktopBackground = React.memo(() => {
 
       {/* LEFT SIDE: From Bottom-Left to Vertical Center */}
       <div
-        className="absolute left-16 top-1/2 -translate-y-1/2 w-1/4 max-w-sm flex items-center transition-all duration-[2000ms] ease-out z-0"
+        className='absolute left-16 top-1/2 -translate-y-1/2 w-1/4 max-w-sm flex items-center transition-all duration-[2000ms] ease-out z-0'
         key={`left-${currentIndex}`}
       >
-        <div className="animate-slide-in-bottom-left">
+        <div className='animate-slide-in-bottom-left'>
           <TypingText
             text={leftPhrase}
             color={activeColorLeft}
@@ -179,10 +179,10 @@ const DesktopBackground = React.memo(() => {
 
       {/* RIGHT SIDE: From Top-Right to Lower Section */}
       <div
-        className="absolute right-16 top-[65%] -translate-y-1/2 w-1/4 max-w-sm flex items-center justify-end text-right transition-all duration-[2000ms] ease-out z-0"
+        className='absolute right-16 top-[65%] -translate-y-1/2 w-1/4 max-w-sm flex items-center justify-end text-right transition-all duration-[2000ms] ease-out z-0'
         key={`right-${currentIndex}`}
       >
-        <div className="animate-slide-in-top-right">
+        <div className='animate-slide-in-top-right'>
           <TypingText
             text={rightPhrase}
             color={activeColorRight}
@@ -194,11 +194,11 @@ const DesktopBackground = React.memo(() => {
 
       {/* Decorative Grid Lines */}
       <div
-        className="absolute inset-0 opacity-10"
+        className='absolute inset-0 opacity-10'
         style={{
           backgroundImage: `linear-gradient(${activeColorLeft} 1px, transparent 1px), linear-gradient(90deg, ${activeColorRight} 1px, transparent 1px)`,
-          backgroundSize: "100px 100px",
-          backgroundPosition: "center center",
+          backgroundSize: '100px 100px',
+          backgroundPosition: 'center center',
         }}
       />
     </div>
