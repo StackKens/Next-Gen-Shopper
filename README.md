@@ -1,6 +1,6 @@
-# Shopping List App
+# Next-Gen-Shopper
 
-A modern **React + Vite** web application to manage your shopping lists. This project is built for learning purposes and demonstrates advanced React concepts including **state management**, **component composition**, **props and children**, **useEffect hook**, and **local storage persistence**.
+A modern **React + Vite** web application to manage your shopping lists and tasks. This project is built for learning purposes and demonstrates advanced React concepts including **state management**, **component composition**, **props and children**, **useEffect hook**, and **local storage persistence**.
 
 ---
 
