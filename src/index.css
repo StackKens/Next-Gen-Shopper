@@ -11,7 +11,7 @@
 
 /* Base styles with improved background */
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   background:
     radial-gradient(
       circle at 20% 80%,
@@ -43,7 +43,7 @@ body {
 /* Animated background elements */
 body::before,
 body::after {
-  content: '';
+  content: "";
   position: fixed;
   width: 100%;
   height: 100%;
@@ -83,7 +83,75 @@ body::after {
       transparent 51%
     );
   background-size: 50px 50px;
+  background-size: 50px 50px;
   opacity: 0.1;
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -50%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(120vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20vh);
+    opacity: 0;
+  }
+}
+
+@keyframes floatDown {
+  0% {
+    transform: translateY(-20vh);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(120vh);
+    opacity: 0;
+  }
+}
+
+@keyframes slideInBottomLeft {
+  0% {
+    opacity: 0;
+    transform: translate(-100px, 100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes slideInTopRight {
+  0% {
+    opacity: 0;
+    transform: translate(100px, -100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
 
 /* Main content container */
@@ -113,6 +181,7 @@ h1 {
   color: #fff;
   margin-bottom: 5px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  animation: fadeInDown 1.2s cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 p {
@@ -187,7 +256,7 @@ form {
 }
 
 /* Inputs, Selects, Textarea */
-form input[type='text'],
+form input[type="text"],
 form select,
 form textarea {
   width: 100%;
@@ -202,7 +271,7 @@ form textarea {
   transition: all 0.3s ease;
 }
 
-form input[type='text']:focus,
+form input[type="text"]:focus,
 form select:focus,
 form textarea:focus {
   outline: none;
@@ -245,7 +314,7 @@ textarea {
 }
 
 .submit-btn::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: -100%;
@@ -332,7 +401,7 @@ textarea {
   }
 
   /* Inputs */
-  form input[type='text'],
+  form input[type="text"],
   form select,
   form textarea {
     font-size: 0.9rem;
@@ -395,7 +464,7 @@ textarea {
   }
 
   /* Title input full width */
-  form input[name='title'] {
+  form input[name="title"] {
     grid-column: 1 / -1;
   }
 
