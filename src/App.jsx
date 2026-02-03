@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import ItemForm from './components/ItemForm';
 import ItemList from './components/itemList';
+import BackgroundTexts from './components/BackgroundTexts';
 
 const App = () => {
   // Items state
@@ -62,6 +63,7 @@ const App = () => {
 
   return (
     <div>
+      <BackgroundTexts />
       <ItemForm onAddItem={handleAddOrUpdateItem} editingItem={editingItem} />
       <ItemList
         item={item}
