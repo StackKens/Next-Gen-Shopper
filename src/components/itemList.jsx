@@ -1,6 +1,6 @@
 import { FiEdit2, FiTrash2 } from 'react-icons/fi';
 
-const ItemList = ({ item }) => {
+const ItemList = ({ item, onDeleteItem }) => {
   if (!item || item.length === 0)
     return (
       <p className='text-gray-400 text-center mt-6'>
@@ -56,7 +56,7 @@ const ItemList = ({ item }) => {
           {/* Footer: delete icon (bottom-left) */}
           <div className='mt-4'>
             <button className='flex items-center gap-1 text-xs text-gray-500 hover:text-red-400 transition'>
-              <FiTrash2 size={24} onClick={deleteItem} />
+              <FiTrash2 size={24} onClick={() => onDeleteItem(myItem.id)} />
             </button>
           </div>
         </div>

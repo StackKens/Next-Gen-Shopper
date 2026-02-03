@@ -15,10 +15,14 @@ const App = () => {
       },
     ]);
   };
+
+  const deleteItem = (id) => {
+    setItem(item.filter((i) => i.id !== id));
+  };
   return (
     <div>
       <ItemForm onAddItem={addItem} />
-      <ItemList item={item} />
+      <ItemList item={item} onDeleteItem={deleteItem} />
     </div>
   );
 };
