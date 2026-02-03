@@ -1,3 +1,5 @@
+import { FiEdit2, FiTrash2 } from 'react-icons/fi';
+
 const ItemList = ({ item }) => {
   if (!item || item.length === 0)
     return (
@@ -7,51 +9,55 @@ const ItemList = ({ item }) => {
     );
 
   return (
-    <section className='max-w-4xl mx-auto px-4 py-6 space-y-4'>
+    <section className='max-w-4xl mx-auto px-4 py-6 space-y-3'>
       {item.map((myItem) => (
         <div
           key={myItem.id}
-          className='bg-neutral-900 border border-neutral-800 rounded-xl p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 shadow-md hover:shadow-lg transition-shadow'
+          className='bg-neutral-900 border border-neutral-800 rounded-lg p-4'
         >
-          {/* Left section: text and badges */}
-          <div className='flex-1 space-y-2'>
-            <h3 className='text-white text-lg font-semibold'>{myItem.title}</h3>
-            <p className='text-gray-400 text-sm'>{myItem.description}</p>
-            <div className='flex flex-wrap gap-2 mt-2'>
-              <span className='text-xs px-2 py-1 rounded-full bg-blue-500/20 text-blue-400'>
-                Priority: {myItem.priority}
-              </span>
-              <span className='text-xs px-2 py-1 rounded-full bg-green-500/20 text-green-400'>
-                Category: {myItem.category}
-              </span>
-              <span className='text-xs px-2 py-1 rounded-full bg-yellow-500/20 text-yellow-400'>
-                Time: {myItem.time}
-              </span>
-            </div>
+          {/* Header: title + edit icon */}
+          <div className='flex items-start justify-between gap-3'>
+            <h3 className='text-white font-medium text-base break-words'>
+              {myItem.title}
+            </h3>
+
+            <button className='text-gray-400 hover:text-blue-400 transition'>
+              <FiEdit2 size={24} />
+            </button>
           </div>
 
-          {/* Right section: status + future actions */}
-          <div className='flex flex-col sm:items-end gap-2'>
+          {/* Description */}
+          <p className='text-gray-400 text-sm mt-1 break-words text-left'>
+            {myItem.description}
+          </p>
+
+          {/* Meta info (minimal & muted) */}
+          <div className='flex flex-wrap gap-2 mt-3 text-xs text-gray-400'>
+            <span className='px-2 py-0.5 border border-neutral-700 rounded'>
+              {myItem.priority}
+            </span>
+            <span className='px-2 py-0.5 border border-neutral-700 rounded'>
+              {myItem.category}
+            </span>
+            <span className='px-2 py-0.5 border border-neutral-700 rounded'>
+              {myItem.time}
+            </span>
             <span
-              className={`text-xs font-medium px-3 py-1 rounded-full ${
+              className={`px-2 py-0.5 border rounded ${
                 myItem.status === 'pending...'
-                  ? 'bg-orange-500/20 text-orange-400'
-                  : 'bg-green-500/20 text-green-400'
+                  ? 'border-orange-700 text-orange-400'
+                  : 'border-green-700 text-green-400'
               }`}
             >
-              Status: {myItem.status}
+              {myItem.status}
             </span>
+          </div>
 
-            {/* Placeholder for future buttons */}
-            <div className='flex gap-2'>
-              {/* Example delete button */}
-              <button className='text-red-500 hover:text-red-400 text-sm'>
-                Delete
-              </button>
-              <button className='text-blue-500 hover:text-blue-400 text-sm'>
-                Edit
-              </button>
-            </div>
+          {/* Footer: delete icon (bottom-left) */}
+          <div className='mt-4'>
+            <button className='flex items-center gap-1 text-xs text-gray-500 hover:text-red-400 transition'>
+              <FiTrash2 size={24} onClick={deleteItem} />
+            </button>
           </div>
         </div>
       ))}

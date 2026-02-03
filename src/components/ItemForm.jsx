@@ -122,7 +122,9 @@ const ItemForm = ({ onAddItem }) => {
             <option value='Evening'>Evening</option>
           </select>
         </div>
-        <button type='submit'>Add item</button>
+        <button type='submit' className='submit-btn'>
+          Add item
+        </button>
       </form>
     </>
   );

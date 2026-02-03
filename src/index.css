@@ -135,7 +135,7 @@ textarea {
 }
 
 /* Button Styling */
-button {
+.submit-btn {
   display: block;
   width: 100%;
   padding: 14px 0;
@@ -150,7 +150,7 @@ button {
   box-shadow: 0 4px 10px rgba(255, 152, 0, 0.4);
 }
 
-button:hover {
+.submit-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 15px rgba(255, 152, 0, 0.6);
 }
@@ -231,14 +231,14 @@ button:hover {
   }
 
   /* Button */
-  button {
+  .submit-btn {
     margin-top: 15px;
     padding-top: 20px;
     font-size: 0.95rem;
     border-radius: 14px;
   }
 
-  button:active {
+  .submit-btn:active {
     transform: scale(0.98);
   }
 }
@@ -288,7 +288,7 @@ button:hover {
   }
 
   /* Button full width */
-  button {
+  .submit-btn {
     grid-column: 1 / -1;
     margin-top: 20px;
   }
