@@ -91,7 +91,7 @@ shopping-list/
 
 ```bash
 git clone https://github.com/StackKens/Next-Gen-Shopper.git
-cd shopping-list-app
+cd next-gen-shopper
 
 ** Installation**
 npm install
