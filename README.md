@@ -151,7 +151,7 @@ Open a Pull Request.
 
 ## **Contact**
 
-Created by **stackKens** – feel free to reach out via GitHub.
+Created by **StackKens** – feel free to reach out via GitHub.
 
 ## License
 
