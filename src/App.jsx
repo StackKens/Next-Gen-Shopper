@@ -24,9 +24,13 @@ const App = () => {
 
   const onSearch = (e) => {
     setSearch(e.target.value);
-
-    console.log(search);
   };
+
+  // Create the filtered items
+
+  const filteredItems = item.filter((i) =>
+    i.title.toLowerCase().includes(search.toLowerCase()),
+  );
 
   // Add or edit item
   const handleAddOrUpdateItem = (newItem) => {
@@ -80,7 +84,7 @@ const App = () => {
         onSearch={onSearch}
       />
       <ItemList
-        item={item}
+        item={filteredItems}
         onDeleteItem={deleteItem}
         onEditItem={editItem}
         onToggleStatus={toggleStatus}
