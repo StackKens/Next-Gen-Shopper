@@ -79,6 +79,7 @@ const App = () => {
     <div>
       <BackgroundTexts />
       <ItemForm
+        search={search}
         onAddItem={handleAddOrUpdateItem}
         editingItem={editingItem}
         onSearch={onSearch}
