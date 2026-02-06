@@ -18,6 +18,16 @@ const App = () => {
   // Currently editing item
   const [editingItem, setEditingItem] = useState(null);
 
+  //Search input
+
+  const [search, setSearch] = useState('');
+
+  const onSearch = (e) => {
+    setSearch(e.target.value);
+
+    console.log(search);
+  };
+
   // Add or edit item
   const handleAddOrUpdateItem = (newItem) => {
     if (editingItem) {
@@ -64,7 +74,11 @@ const App = () => {
   return (
     <div>
       <BackgroundTexts />
-      <ItemForm onAddItem={handleAddOrUpdateItem} editingItem={editingItem} />
+      <ItemForm
+        onAddItem={handleAddOrUpdateItem}
+        editingItem={editingItem}
+        onSearch={onSearch}
+      />
       <ItemList
         item={item}
         onDeleteItem={deleteItem}

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FiSearch, FiFilter } from 'react-icons/fi';
 import appLogo from '../assets/icon.png';
 
-const ItemForm = ({ onAddItem, editingItem }) => {
+const ItemForm = ({ onAddItem, editingItem, onSearch }) => {
   const [formItem, setFormItem] = useState({
     title: '',
     priority: 'High',
@@ -65,7 +65,7 @@ const ItemForm = ({ onAddItem, editingItem }) => {
 
       <div className='search-filter-wrapper'>
         <div className='search'>
-          <input type='text' placeholder='Search items' />
+          <input type='text' placeholder='Search items' onChange={onSearch} />
           <FiSearch size={20} color='#555' />
         </div>
 
