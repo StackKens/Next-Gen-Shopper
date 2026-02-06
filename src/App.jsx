@@ -85,6 +85,7 @@ const App = () => {
         onSearch={onSearch}
       />
       <ItemList
+        search={search}
         item={searchedItems}
         onDeleteItem={deleteItem}
         onEditItem={editItem}
